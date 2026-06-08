@@ -1,69 +1,754 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>rajee ganesan</title>
-  <meta name="description" content="website description" />
-  <meta name="keywords" content="website keywords, website keywords" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <!-- modernizr enables HTML5 elements and feature detects -->
-  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajee Ganesan</title>
+<style>
+  :root {
+    --navy: #1a3a2a;
+    --navy-light: #2a5040;
+    --accent: #2d6a4f;
+    --text: #1c2b22;
+    --text-muted: #4a5e52;
+    --text-light: #7a9080;
+    --bg: #faf8f2;
+    --bg-secondary: #f2efe6;
+    --bg-tertiary: #e8e4d8;
+    --border: #d4cfbe;
+    --border-light: #e4e0d2;
+    --nav-height: 60px;
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Georgia', serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(250,248,242,0.97);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    gap: 2rem;
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-name {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-right: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Arial', sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--navy); background: var(--bg-tertiary); }
+
+  .nav-links .nav-external {
+    color: var(--accent);
+    border: 1px solid var(--border);
+  }
+
+  .nav-links .nav-external:hover { background: var(--bg-secondary); }
+
+  /* SECTIONS */
+  section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* HERO */
+  #about {
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+  }
+
+  .hero-name {
+    font-family: 'Arial', sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-bio {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 620px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-bio a { color: var(--accent); text-decoration: none; }
+  .hero-bio a:hover { text-decoration: underline; }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .contact-link {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* RESEARCH CARDS */
+  .research-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .research-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: var(--bg);
+    border-left: 3px solid var(--navy);
+  }
+
+  .research-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .research-card h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .research-tag {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    white-space: nowrap;
+    color: var(--text-light);
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .research-lab {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+
+  .research-card p {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* PUBLICATIONS */
+  .pub-group-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .pub-group-label:first-child { margin-top: 0; }
+
+  .pub-list { list-style: none; }
+
+  .pub-item {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .pub-item:last-child { border-bottom: none; }
+
+  .pub-bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--navy);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .pub-authors { color: var(--text-muted); }
+  .pub-authors strong { color: var(--text); font-weight: 600; }
+
+  .pub-title { font-style: italic; }
+
+  .pub-journal {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 3px;
+    color: var(--accent);
+  }
+
+  .pub-status {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--text-light);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2px 7px;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+
+  /* TEACHING */
+  .teaching-list { list-style: none; }
+
+  .teaching-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 2rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border-light);
+    align-items: start;
+  }
+
+  .teaching-item:last-child { border-bottom: none; }
+
+  .teaching-course {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .teaching-role {
+    font-size: 13.5px;
+    color: var(--text-muted);
+  }
+
+  .teaching-meta {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* MENTORSHIP */
+  .mentorship-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+    font-family: 'Arial', sans-serif;
+  }
+
+  .mentee-list { list-style: none; }
+
+  .mentee-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+  }
+
+  .mentee-item:last-child { border-bottom: none; }
+  .mentee-name { font-weight: 600; color: var(--text); }
+  .mentee-project { color: var(--text-muted); font-size: 13.5px; }
+  .mentee-outcome {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ACHIEVEMENTS */
+  .achievement-block { margin-bottom: 2rem; }
+  .achievement-block:last-child { margin-bottom: 0; }
+
+  .achievement-block h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .award-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+  }
+
+  .award-item:last-child { border-bottom: none; }
+  .award-name { color: var(--text); }
+  .award-year {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    white-space: nowrap;
+  }
+
+  .pres-item {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .pres-item:last-child { border-bottom: none; }
+  .pres-type {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .pres-title { color: var(--text); font-style: italic; }
+  .pres-venue { color: var(--text-muted); font-size: 13.5px; }
+
+  /* FOOTER */
+  footer {
+    background: #1a3a2a;
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  footer .footer-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  footer p { font-size: 14px; margin-bottom: 1.25rem; }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .cv-btn {
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 20px;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: opacity 0.15s;
+  }
+
+  .cv-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; gap: 0.5rem; }
+    .nav-links { gap: 0; }
+    .nav-links a { padding: 6px 7px; font-size: 11px; }
+    section { padding: 3rem 1.25rem; }
+    .teaching-item { grid-template-columns: 1fr; }
+    .teaching-meta { text-align: left; }
+    .award-item { flex-direction: column; gap: 2px; }
+    .mentee-item { flex-wrap: wrap; }
+  }
+</style>
+</head>
 <body>
-  <div id="main">
-    <header>
-    <div id="logo"><h1>RAJEE<a href="#">GANESAN</a> </h1></div>
-      <nav>
-        <ul class="lavaLampWithImage" id="lava_menu">
-          <li class="current"><a href="index.html">home</a></li>
-          <li><a href="resume.html">research</a></li>
-          <li><a href="writing.html">writing</a></li>
-          <li><a href="film.html">film</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div id="site_content">
-      <div id="sidebar_container">
-        <div id="gallery">
-          <ul class="images">
-            <li class="show"><img width="450" height="450" src="images/rg.jpg" alt="photo_one" /></li>
-            <li ><img width="450" height="450" src="images/rajee3.jpg" alt="photo_two_heic" /></li>
-            <li ><img width="450" height="450" src="images/kayak3.jpg" alt="photo_two_heic" /></li>
-            <li ><img width="450" height="450" src="images/hike3.jpg" alt="photo_three_heic" /></li>
-          </ul>
-        </div>
-      </div>
-      <div id="content">
-        <br>
-        <h3>I'm a fourth year Biological Sciences Ph.D. candidate in the Pfenning lab at Carnegie Mellon University in Pittsburgh. My thesis studies vocal learning at a computational level, specifically enhancer evolution and comparative genomics across mammalian and avian clades.</h3>
-        <br>
-        <h3>I am from North Carolina, and I completed my undergraduate degree at UNC Chapel Hill. When I'm not in the lab, I'm <a href="https://open.spotify.com/user/rajeeganesan" target="_blank">listening to music</a> or at a live show, writing or hiking.</h3>
-        <br>
-        <h3> For more information on my previous experience, you can download my <a href="rganesan_cv.pdf" target="_blank">curriculum vitae</a> or my <a href="rganesan_resume.pdf" target="_blank">resume</a> in pdf form here (last updated July 2024). The best way to contact me is at rganesan at andrew.cmu.edu :)</h3>
-        <br>
-        <hr> this website was a "fun side project to learn HTML" turned into a severe work in progress.
-        
-        </ul>
-      </div>
-    </div>
-    <footer>
-      <p><a href="index.html">home</a> | <a href="resume.html">research</a> | <a href="writing.html">writing</a> | <a href="film.html">film</a> 
-    </footer>
+
+<nav>
+  <a class="nav-name" href="#about">Rajee Ganesan</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="https://www.dailytarheel.com/staff/rajee-ganesan" target="_blank" rel="noopener" class="nav-external">Writing ↗</a></li>
+    <li><a href="#" class="nav-external">Film ↗</a></li>
+  </ul>
+</nav>
+
+<!-- ABOUT / HERO -->
+<section id="about">
+  <p class="section-label">Ph.D. Candidate · Carnegie Mellon University</p>
+  <h1 class="hero-name">Rajee Ganesan</h1>
+  <p class="hero-title">Computational Biology &amp; Neurogenomics &nbsp;·&nbsp; Pittsburgh, PA</p>
+  <p class="hero-bio">
+    I'm a fifth-year Ph.D. candidate in the <a href="https://www.pfenninglab.org" target="_blank" rel="noopener">Pfenning Neurogenomics Lab</a> at Carnegie Mellon University. My research focuses on the molecular and genomic basis of vocal learning — using comparative genomics, machine learning, and epigenomics to understand how enhancer evolution drives the convergent emergence of complex vocal behavior across vertebrates.
+  </p>
+  <p class="hero-bio" style="margin-top: -0.75rem;">
+    I'm also a science communicator, educator, and former opinion editor. When I'm not in the lab, I'm probably at a show, hiking, or <a href="https://open.spotify.com/user/rajeeganesan" target="_blank" rel="noopener">listening to music</a>.
+  </p>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:rganesan@andrew.cmu.edu">&#9993; rganesan@andrew.cmu.edu</a>
+    <a class="contact-link" href="https://github.com/rajeeganesan" target="_blank" rel="noopener">&#128279; GitHub</a>
+    <a class="contact-link" href="https://rajeeganesan.github.io/rganesan_cv.pdf" target="_blank">&#8595; Curriculum Vitae</a>
   </div>
-  <!-- javascript at the bottom for fast page loading -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-  <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
-  <script type="text/javascript" src="js/image_fade.js"></script>
-  <script type="text/javascript">
-    $(function() {
-      $("#lava_menu").lavaLamp({
-        fx: "backout",
-        speed: 700
-      });
-    });
-  </script>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <p class="section-label">Research</p>
+  <h2>Projects</h2>
+  <div class="research-grid">
+
+    <div class="research-card">
+      <div class="research-card-header">
+        <h3>Enhancer evolution and the convergent emergence of vocal learning</h3>
+        <span class="research-tag">2022 – Present</span>
+      </div>
+      <p class="research-lab">Pfenning Neurogenomics Lab, CMU Department of Biological Sciences</p>
+      <p>Vocal learning — the ability to imitate sounds through social exposure — has evolved independently in multiple vertebrate lineages, each developing a specialized forebrain sensorimotor circuit. Using machine learning, comparative genomics, and ATAC-seq data across 280+ vertebrate genomes, I identify and characterize enhancers whose activity patterns are uniquely conserved in vocal learners, linking genetic sequence variation to circuit-level neural function and behavior.</p>
+    </div>
+
+    <div class="research-card">
+      <div class="research-card-header">
+        <h3>Cis-regulatory synteny conservation across the Vertebrate Genomes Project</h3>
+        <span class="research-tag">2023 – Present</span>
+      </div>
+      <p class="research-lab">Pfenning Lab / VGP Consortium</p>
+      <p>As part of the Vertebrate Genomes Project consortium, I developed pipelines to assess enhancer–gene synteny conservation across ~577 vertebrate genomes using HAL-format liftover and large-scale SLURM HPC workflows. This work characterizes the evolutionary retention of regulatory architecture across vertebrate lineages, with a focus on interneuron-associated enhancers in the motor cortex.</p>
+    </div>
+
+    <div class="research-card">
+      <div class="research-card-header">
+        <h3>Genetic risk architecture of Crohn's disease</h3>
+        <span class="research-tag">2019 – 2022</span>
+      </div>
+      <p class="research-lab">Furey Lab, UNC Department of Medicine</p>
+      <p>Applied allelic imbalance analysis and statistical modeling to ATAC-seq data from patient colonic tissue to identify sites of differential chromatin accessibility linked to Crohn's disease risk loci. Identified 2,000+ sites of allelic imbalance, with 8 overlapping established GWAS loci including NOD2 and DNMT3A. Work completed as Honors Thesis; published in Nature Communications.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <p class="section-label">Publications</p>
+  <h2>Selected Publications</h2>
+
+  <p class="pub-group-label">Published</p>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <div class="pub-bullet"></div>
+      <div>
+        <div class="pub-authors"><strong>Ganesan R</strong>, Pfenning AR. (2025)</div>
+        <div class="pub-title">Evolution of Mammalian Regulatory Networks in the Brain.</div>
+        <div><span class="pub-journal">Annual Review of Animal Biosciences, 14.</span></div>
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-bullet"></div>
+      <div>
+        <div class="pub-authors">Nishiyama NC, Silverstein S, Darlington K, Kennedy Ng MM, Clough KM, Bauer M, Beasley C, Bharadwaj A, <strong>Ganesan R</strong>, et al. (2026)</div>
+        <div class="pub-title">eQTL in diseased colon tissue identifies novel target genes associated with IBD.</div>
+        <div><span class="pub-journal">Nature Communications.</span></div>
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-bullet"></div>
+      <div>
+        <div class="pub-authors">Marki A, Buscher K, Lorenzini C, Meyer M, Saigusa R, Fan Z, Yeh YT, Hartmann N, Dan JM, Kiosses WB, Golden GJ, <strong>Ganesan R</strong>, et al. (2021)</div>
+        <div class="pub-title">Elongated neutrophil-derived structures are blood-borne microparticles formed by rolling neutrophils during sepsis.</div>
+        <div><span class="pub-journal">Journal of Experimental Medicine.</span></div>
+      </div>
+    </li>
+  </ul>
+
+  <p class="pub-group-label">Under Review &amp; In Preparation</p>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <div class="pub-bullet"></div>
+      <div>
+        <div class="pub-authors">Formenti G, [...] <strong>Ganesan R</strong>, [...] Jarvis ED, et al.</div>
+        <div class="pub-title">The Vertebrate Genomes Project Phase I: A global reference genome resource.</div>
+        <div><span class="pub-status">Under review</span></div>
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-bullet"></div>
+      <div>
+        <div class="pub-authors"><strong>Ganesan R</strong>, [...] Jarvis ED, Pfenning AR, Vernes SC, VGP Vocal Learning Group.</div>
+        <div class="pub-title">VGP package: Shared genetic and neural features among humans and other vocal learning lineages.</div>
+        <div><span class="pub-status">In preparation</span></div>
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-bullet"></div>
+      <div>
+        <div class="pub-authors"><strong>Ganesan R</strong>, Li X, Sestili H, Pfenning AR.</div>
+        <div class="pub-title">Comparative analysis of B cell enhancer evolution associated with mammalian social behavior.</div>
+        <div><span class="pub-status">In preparation</span></div>
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-bullet"></div>
+      <div>
+        <div class="pub-authors">Marcus S, Davenport MH, Harter E, <strong>Ganesan R</strong>, Lee C, Phan BN, Terra N, Pfenning AR, Jarvis ED.</div>
+        <div class="pub-title">Transcriptomic signatures of long-range projection class neurons for vocal control.</div>
+        <div><span class="pub-status">In preparation</span></div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <p class="section-label">Teaching</p>
+  <h2>Teaching Experience</h2>
+
+
+  <ul class="teaching-list">
+    <li class="teaching-item">
+      <div>
+        <div class="teaching-course">BIOF555 / BIOF556 — Foundations &amp; Advanced Topics in Single-Cell RNA-seq</div>
+        <div class="teaching-role">Instructor (sole); Co-instructor; Teaching Assistant &nbsp;·&nbsp; NIH/FAES, Bethesda, MD</div>
+      </div>
+      <div class="teaching-meta">5 semesters<br>2024 – 2026</div>
+    </li>
+    <li class="teaching-item">
+      <div>
+        <div class="teaching-course">BIOL03220 — Genetics</div>
+        <div class="teaching-role">Recitation Instructor &nbsp;·&nbsp; CMU Department of Biology</div>
+      </div>
+      <div class="teaching-meta">Fall 2026</div>
+    </li>
+    <li class="teaching-item">
+      <div>
+        <div class="teaching-course">02719 — Genomics and Epigenetics of the Brain</div>
+        <div class="teaching-role">Guest Instructor &nbsp;·&nbsp; CMU Department of Computational Biology</div>
+      </div>
+      <div class="teaching-meta">Fall 2026</div>
+    </li>
+    <li class="teaching-item">
+      <div>
+        <div class="teaching-course">BIOL03133 — Neurobiology of Disease</div>
+        <div class="teaching-role">Teaching Assistant &nbsp;·&nbsp; CMU Department of Biology</div>
+      </div>
+      <div class="teaching-meta">3 semesters<br>2023 – 2026</div>
+    </li>
+  </ul>
+
+  <h2 style="margin-top: 3rem;">Mentorship</h2>
+  <p style="font-size: 15.5px; line-height: 1.85; color: var(--text-muted); max-width: 620px;">
+    Mentorship has been a consistent thread across my research training. I've worked closely with students at the undergraduate, Master's, and doctoral levels — guiding independent projects, providing technical training in computational biology, and supporting scientific writing and presentation. My approach is grounded in the same framework I bring to teaching: moving students from structured exposure to independent application to genuine articulation of their own ideas. I am less interested in producing students who can execute a workflow than in developing researchers who understand why a given approach exists, when it is appropriate, and where it breaks down. All six students I've formally mentored have gone on to PhD or MD programs, including one thesis recognized with the Best Honors Thesis award in the CMU School of Computer Science. For a fuller account of how I think about teaching and learning, see my <a href="https://rajeeganesan.github.io/rganesan_teaching_philosophy.pdf" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">teaching philosophy</a>.
+  </p>
+
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <p class="section-label">Recognition</p>
+  <h2>Selected Achievements</h2>
+
+  <div class="achievement-block">
+    <h3>Awards</h3>
+    <div class="award-item">
+      <span class="award-name">Best Poster — CMU Department of Computational Biology Retreat</span>
+      <span class="award-year">2026</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name">Travel Conference Award — CMU Mellon College of Sciences</span>
+      <span class="award-year">2026</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name">Margaret Carver Award — CMU Department of Biology</span>
+      <span class="award-year">2025</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name">Exemplary Teaching Assistant — NIH/FAES</span>
+      <span class="award-year">2025</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name">Carolina Research Scholar — UNC Chapel Hill</span>
+      <span class="award-year">2019–2022</span>
+    </div>
+  </div>
+
+  <div class="achievement-block">
+    <h3>Selected Presentations</h3>
+    <div class="pres-item">
+      <div class="pres-type">Selected Talk</div>
+      <div class="pres-title">Specialized enhancer activity associated with convergent evolution of vocal learning</div>
+      <div class="pres-venue">Evolution Conference, Cleveland, OH &nbsp;·&nbsp; June 2026</div>
+    </div>
+    <div class="pres-item">
+      <div class="pres-type">Selected Talk</div>
+      <div class="pres-title">Specialized enhancer activity associated with convergent evolution of vocal learning</div>
+      <div class="pres-venue">Genes Brain and Behavior Conference, Pittsburgh, PA &nbsp;·&nbsp; June 2026</div>
+    </div>
+    <div class="pres-item">
+      <div class="pres-type">Selected Poster</div>
+      <div class="pres-title">Specialized enhancer activity associated with convergent evolution of vocal learning</div>
+      <div class="pres-venue">Society for Neuroscience, San Diego, CA &nbsp;·&nbsp; October 2025</div>
+    </div>
+    <div class="pres-item">
+      <div class="pres-type">Poster</div>
+      <div class="pres-title">Specialized enhancer activity associated with convergent evolution of vocal learning</div>
+      <div class="pres-venue">Vertebrate Genome Conference, New York City, NY &nbsp;·&nbsp; October 2025</div>
+    </div>
+  </div>
+
+  <div class="achievement-block">
+    <h3>Leadership &amp; Communication</h3>
+    <div class="award-item">
+      <span class="award-name">Science Columnist &amp; Opinion Editor — UNC Daily Tar Heel</span>
+      <span class="award-year">2019–2022</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name">Data Analyst — UNC Division I Baseball</span>
+      <span class="award-year">2019–2020</span>
+    </div>
+    <div class="award-item">
+      <span class="award-name">Research Ambassador &amp; Mentor — UNC Office of Undergraduate Research</span>
+      <span class="award-year">2021–2022</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Rajee Ganesan</div>
+  <p>Ph.D. Candidate, Carnegie Mellon University &nbsp;·&nbsp; Pittsburgh, PA</p>
+  <div class="footer-links">
+    <a href="mailto:rganesan@andrew.cmu.edu">rganesan@andrew.cmu.edu</a>
+    <a href="https://github.com/rajeeganesan" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.dailytarheel.com/staff/rajee-ganesan" target="_blank" rel="noopener">Writing</a>
+    <a href="https://open.spotify.com/user/rajeeganesan" target="_blank" rel="noopener">Spotify</a>
+  </div>
+  <a class="cv-btn" href="https://rajeeganesan.github.io/rganesan_cv.pdf" target="_blank">Download CV</a>
+</footer>
+
 </body>
 </html>
