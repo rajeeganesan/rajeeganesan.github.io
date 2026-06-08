@@ -485,6 +485,8 @@
     .teaching-meta { text-align: left; }
     .award-item { flex-direction: column; gap: 2px; }
     .mentee-item { flex-wrap: wrap; }
+    #about > div { flex-direction: column-reverse; }
+    #about img { width: 100% !important; height: 240px !important; }
   }
 </style>
 </head>
@@ -506,22 +508,30 @@
 <!-- ABOUT / HERO -->
 <section id="about">
   <p class="section-label">Ph.D. Candidate · Carnegie Mellon University</p>
-  <h1 class="hero-name">Rajee Ganesan</h1>
-  <p class="hero-title">Computational Biology, Comparative Genomics &amp; Neuroscience &nbsp;·&nbsp; Pittsburgh, PA</p>
-  <p class="hero-bio">
-    I'm a fifth-year Ph.D. candidate in the <a href="https://www.pfenninglab.org" target="_blank" rel="noopener">Pfenning Neurogenomics Lab</a> at Carnegie Mellon University. My research focuses on the molecular and genomic basis of vocal learning and social behaviors — using comparative genomics, machine learning, and epigenomics to understand how enhancer evolution drives the convergent emergence of these complex traits across vertebrates.
-  </p>
-  <p class="hero-bio" style="margin-top: -0.75rem;">
-    I also have extensive experience in science education and teaching. When I'm not in the lab, I'm probably watching baseball, hiking, or <a href="https://open.spotify.com/user/rajeeganesan" target="_blank" rel="noopener">listening to music</a>.
-  </p>
-  <div class="contact-links">
-  <a class="contact-link" href="mailto:rganesan@andrew.cmu.edu">✉</a>
-  <a class="contact-link" href="https://rajeeganesan.github.io/rganesan_cv.pdf" target="_blank">↓ Curriculum Vitae</a>
-  <a class="contact-link" href="https://rajeeganesan.github.io/rganesan_resume.pdf" target="_blank">↓ Resume</a>
-  <a class="contact-link" href="https://x.com/rajeeganesan" target="_blank" rel="noopener">𝕏</a>
-  <a class="contact-link" href="https://orcid.org/0000-0003-3020-8729" target="_blank" rel="noopener">ORCID</a>
-  <a class="contact-link" href="https://www.linkedin.com/in/rajee-ganesan-503200169/" target="_blank" rel="noopener">LinkedIn</a>
-</div>
+  <div style="display: flex; gap: 3rem; align-items: flex-start;">
+    <div style="flex: 1;">
+      <h1 class="hero-name">Rajee Ganesan</h1>
+      <p class="hero-title">Computational Biology, Comparative Genomics &amp; Neuroscience &nbsp;·&nbsp; Pittsburgh, PA</p>
+      <p class="hero-bio">
+        I'm a fifth-year Ph.D. candidate in the <a href="https://www.pfenninglab.org" target="_blank" rel="noopener">Pfenning Neurogenomics Lab</a> at Carnegie Mellon University. My research focuses on the molecular and genomic basis of vocal learning and social behaviors — using comparative genomics, machine learning, and epigenomics to understand how enhancer evolution drives the convergent emergence of these complex traits across vertebrates.
+      </p>
+      <p class="hero-bio" style="margin-top: -0.75rem;">
+        I also have extensive experience in science education and teaching. When I'm not in the lab, I'm probably watching baseball, hiking, or <a href="https://open.spotify.com/user/rajeeganesan" target="_blank" rel="noopener">listening to music</a>.
+      </p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:rganesan@andrew.cmu.edu">✉</a>
+        <a class="contact-link" href="https://rajeeganesan.github.io/rganesan_cv.pdf" target="_blank">↓ Curriculum Vitae</a>
+        <a class="contact-link" href="https://rajeeganesan.github.io/rganesan_resume.pdf" target="_blank">↓ Resume</a>
+        <a class="contact-link" href="https://x.com/rajeeganesan" target="_blank" rel="noopener">𝕏</a>
+        <a class="contact-link" href="https://orcid.org/0000-0003-3020-8729" target="_blank" rel="noopener">ORCID</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/rajee-ganesan-503200169/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div style="flex-shrink: 0;">
+      <img src="images/rajee.jpeg" alt="Rajee Ganesan"
+        style="width: 220px; height: 260px; object-fit: cover; object-position: center top; border-radius: 6px; border: 1px solid var(--border);">
+    </div>
+  </div>
 </section>
 
 <!-- RESEARCH -->
