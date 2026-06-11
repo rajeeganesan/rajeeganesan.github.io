@@ -241,65 +241,18 @@ nav::-webkit-scrollbar { display: none; }
     font-size: 14.5px;
     color: var(--text-muted);
     line-height: 1.7;
+
+@media (max-width: 640px) {
+  .research-popup {
+    position: static;
+    display: none;
+    margin-top: 1rem;
+    box-shadow: none;
   }
-
-  /* RESEARCH CARDS - HOVER POPUP */
-.research-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  .research-card:hover .research-popup {
+    display: block;
+  }
 }
-
-.research-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  background: var(--bg);
-  border-left: 3px solid var(--navy);
-  position: relative;
-  cursor: default;
-}
-
-.research-card:hover {
-  border-left-color: var(--accent);
-  background: var(--bg-secondary);
-}
-
-.research-card-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.research-card-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.research-card h3 {
-  font-family: 'Arial', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.4;
-}
-
-.research-card-info {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.research-lab {
-  font-family: 'Arial', sans-serif;
-  font-size: 12px;
-  color: var(--text-light);
-  font-style: italic;
-}
-
 .research-keywords {
   display: flex;
   gap: 0.4rem;
@@ -314,51 +267,6 @@ nav::-webkit-scrollbar { display: none; }
   border-radius: 10px;
   padding: 2px 8px;
 }
-
-.research-tag {
-  font-family: 'Arial', sans-serif;
-  font-size: 11px;
-  white-space: nowrap;
-  color: var(--text-light);
-  padding: 3px 8px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-.research-popup {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
-  z-index: 50;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  font-size: 14.5px;
-  line-height: 1.75;
-  color: var(--text-muted);
-}
-
-.research-card:hover .research-popup {
-  display: block;
-}
-
-@media (max-width: 640px) {
-  .research-popup {
-    position: static;
-    display: none;
-    margin-top: 1rem;
-    box-shadow: none;
-  }
-  .research-card:hover .research-popup {
-    display: block;
-  }
-}
-
   /* PUBLICATIONS */
   .pub-group-label {
     font-family: 'Arial', sans-serif;
@@ -664,77 +572,57 @@ nav::-webkit-scrollbar { display: none; }
 </section>
 
 <!-- RESEARCH -->
-<!-- RESEARCH -->
 <section id="research">
   <p class="section-label">Selected Research Projects</p>
   <div class="research-grid">
 
     <div class="research-card">
-      <div class="research-card-summary">
-        <div class="research-card-meta">
-          <h3>Enhancer evolution and the convergent emergence of vocal learning</h3>
-          <div class="research-card-info">
-            <span class="research-lab">Pfenning Neurogenomics Lab, CMU · Pittsburgh, PA</span>
-            <div class="research-keywords">
-              <span class="research-keyword">comparative genomics</span>
-              <span class="research-keyword">machine learning</span>
-              <span class="research-keyword">epigenomics</span>
-              <span class="research-keyword">ATAC-seq</span>
-            </div>
-          </div>
-        </div>
+      <div class="research-card-header">
+        <h3>Enhancer evolution and the convergent emergence of vocal learning</h3>
         <span class="research-tag">2022 – Present</span>
       </div>
-      <div class="research-popup">
-        Vocal learning — the ability to imitate sounds through social exposure — has evolved independently in multiple vertebrate lineages, each developing a specialized forebrain sensorimotor circuit. Using machine learning, comparative genomics, and ATAC-seq data across 280+ vertebrate genomes, I identify and characterize enhancers whose activity patterns are uniquely conserved in vocal learners, linking genetic sequence variation to circuit-level neural function and behavior.
+      <p class="research-lab">Pfenning Neurogenomics Lab, CMU Department of Biological Sciences</p>
+      <div class="research-keywords" style="margin-bottom: 0.75rem;">
+        <span class="research-keyword">comparative genomics</span>
+        <span class="research-keyword">machine learning</span>
+        <span class="research-keyword">epigenomics</span>
+        <span class="research-keyword">ATAC-seq</span>
       </div>
+      <p>Vocal learning — the ability to imitate sounds through social exposure — has evolved independently in multiple vertebrate lineages, each developing a specialized forebrain sensorimotor circuit. Using machine learning, comparative genomics, and ATAC-seq data across 280+ vertebrate genomes, I identify and characterize enhancers whose activity patterns are uniquely conserved in vocal learners, linking genetic sequence variation to circuit-level neural function and behavior.</p>
     </div>
 
     <div class="research-card">
-      <div class="research-card-summary">
-        <div class="research-card-meta">
-          <h3>Cis-regulatory synteny conservation across the Vertebrate Genomes Project</h3>
-          <div class="research-card-info">
-            <span class="research-lab">Pfenning Lab / VGP Consortium · Pittsburgh, PA</span>
-            <div class="research-keywords">
-              <span class="research-keyword">synteny</span>
-              <span class="research-keyword">HAL liftover</span>
-              <span class="research-keyword">vertebrate genomics</span>
-              <span class="research-keyword">HPC</span>
-            </div>
-          </div>
-        </div>
+      <div class="research-card-header">
+        <h3>Cis-regulatory synteny conservation across the Vertebrate Genomes Project</h3>
         <span class="research-tag">2023 – Present</span>
       </div>
-      <div class="research-popup">
-        As part of the Vertebrate Genomes Project consortium, I developed pipelines to assess enhancer–gene synteny conservation across ~577 vertebrate genomes using HAL-format liftover and large-scale SLURM HPC workflows. This work characterizes the evolutionary retention of regulatory architecture across vertebrate lineages, with a focus on interneuron-associated enhancers in the motor cortex.
+      <p class="research-lab">Pfenning Lab / VGP Consortium</p>
+      <div class="research-keywords" style="margin-bottom: 0.75rem;">
+        <span class="research-keyword">synteny</span>
+        <span class="research-keyword">HAL liftover</span>
+        <span class="research-keyword">vertebrate genomics</span>
+        <span class="research-keyword">HPC</span>
       </div>
+      <p>As part of the Vertebrate Genomes Project consortium, I developed pipelines to assess enhancer–gene synteny conservation across ~577 vertebrate genomes using HAL-format liftover and large-scale SLURM HPC workflows. This work characterizes the evolutionary retention of regulatory architecture across vertebrate lineages, with a focus on interneuron-associated enhancers in the motor cortex.</p>
     </div>
 
     <div class="research-card">
-      <div class="research-card-summary">
-        <div class="research-card-meta">
-          <h3>Genetic risk architecture of Crohn's disease</h3>
-          <div class="research-card-info">
-            <span class="research-lab">Furey Lab, UNC Department of Medicine · Chapel Hill, NC</span>
-            <div class="research-keywords">
-              <span class="research-keyword">allelic imbalance</span>
-              <span class="research-keyword">GWAS</span>
-              <span class="research-keyword">chromatin accessibility</span>
-              <span class="research-keyword">IBD</span>
-            </div>
-          </div>
-        </div>
+      <div class="research-card-header">
+        <h3>Genetic risk architecture of Crohn's disease</h3>
         <span class="research-tag">2019 – 2022</span>
       </div>
-      <div class="research-popup">
-        Applied allelic imbalance analysis and statistical modeling to ATAC-seq data from patient colonic tissue to identify sites of differential chromatin accessibility linked to Crohn's disease risk loci. Identified 2,000+ sites of allelic imbalance, with 8 overlapping established GWAS loci including NOD2 and DNMT3A. Work completed as Honors Thesis; published in Nature Communications.
+      <p class="research-lab">Furey Lab, UNC Department of Medicine</p>
+      <div class="research-keywords" style="margin-bottom: 0.75rem;">
+        <span class="research-keyword">allelic imbalance</span>
+        <span class="research-keyword">GWAS</span>
+        <span class="research-keyword">chromatin accessibility</span>
+        <span class="research-keyword">IBD</span>
       </div>
+      <p>Applied allelic imbalance analysis and statistical modeling to ATAC-seq data from patient colonic tissue to identify sites of differential chromatin accessibility linked to Crohn's disease risk loci. Identified 2,000+ sites of allelic imbalance, with 8 overlapping established GWAS loci including NOD2 and DNMT3A. Work completed as Honors Thesis; published in Nature Communications.</p>
     </div>
 
   </div>
 </section>
-
 <!-- PUBLICATIONS -->
 <section id="publications">
   <p class="section-label">Selected Publications</p>
